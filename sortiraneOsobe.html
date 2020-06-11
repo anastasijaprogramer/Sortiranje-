@@ -1,0 +1,37 @@
+<html>
+
+<head>
+    <title>Cas 23</title>
+</head>
+
+<body>
+    <form>
+        <input type='text' name='osoba' id='osoba'>
+        <input type='button' name='sortiranje' id='sortiranje' value='Sortiraj osobe'><br><br>
+        <textarea name='sortirano' id='sortirano' cols='20' rows='20'></textarea>
+    </form>
+    <script>
+
+        // u input elementu id='osoba' unosimo naziv osobe i kada pritisnemo dugme 'Sortiraj osobe'
+        // u elementu id='sortirano' se ispisuju sve unesene do tada osobe sortirane po imenu, svaka u novom redu,
+        // prilikom klika na dugme, polje za unos osobe se prazni za sledeci unos
+
+        var sortiranje = document.getElementById('sortiranje');
+        sortiranje.addEventListener('click', sortiramoOsobe);
+
+        var nizOsoba = [];
+        function sortiramoOsobe() {
+            var sortirano = document.getElementById('sortirano');
+            var osoba = document.getElementById('osoba');
+
+            nizOsoba.push(osoba.value);
+            nizOsoba.sort();
+            osoba.value = '';
+
+            sortirano.value = nizOsoba.join('\n');
+        }
+
+    </script>
+</body>
+
+</html>
